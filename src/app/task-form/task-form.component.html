@@ -1,0 +1,32 @@
+<div class="task-form-container">
+    <h2 mat-dialog-title>Add New Task</h2>
+    <mat-dialog-content>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Enter task</mat-label>
+        <input matInput 
+               [(ngModel)]="taskName" 
+               name="taskName" 
+               required 
+               #taskNameField="ngModel" 
+               (ngModelChange)="onInputChange()"
+               autocomplete="off"/>
+        <mat-error *ngIf="taskNameField.invalid && taskNameField.touched">
+          Task name is required.
+        </mat-error>
+      </mat-form-field>
+    </mat-dialog-content>
+    
+    <mat-dialog-actions align="end">
+      <button mat-stroked-button 
+              color="warn" 
+              (click)="closeTaskForm()">
+        Cancel
+      </button>
+      <button mat-raised-button 
+              color="primary" 
+              (click)="addTask()" 
+              [disabled]="taskNameField.invalid">
+        Save
+      </button>
+    </mat-dialog-actions>
+  </div>

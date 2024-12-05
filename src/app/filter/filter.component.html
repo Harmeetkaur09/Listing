@@ -1,0 +1,10 @@
+<div class="filter-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Filter</mat-label>
+    <mat-select (selectionChange)="changeFilter($event.value)">
+      <mat-option value="all">All</mat-option>
+      <mat-option value="completed">Completed</mat-option>
+      <mat-option value="pending">Pending</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
